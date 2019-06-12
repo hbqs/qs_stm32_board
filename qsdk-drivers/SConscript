@@ -1,0 +1,34 @@
+import os
+import rtconfig
+from building import *
+
+Import('SDK_LIB')
+# add the general drivers.
+src = Split("""
+""")
+cwd = GetCurrentDir()
+path = [cwd, str(Dir('#'))]
+list = os.listdir(cwd)
+objs = []
+
+if GetDepend(['BSP_USING_LED']):
+    src += Glob('qsdk_led.c')
+
+if GetDepend(['BSP_USING_BEEP']):
+    src += Glob('qsdk_beep.c')
+    
+if GetDepend(['BSP_USING_KEY']):
+    src += Glob('qsdk_key.c')
+    
+if GetDepend(['BSP_USING_OLED']):
+    src += Glob('qsdk_oled.c')
+
+group = DefineGroup('qsdk_drives', src, depend = [''], CPPPATH = path)
+
+for d in list:
+    path = os.path.join(cwd, d)
+    if os.path.isfile(os.path.join(path, 'SConscript')):
+        objs = objs + SConscript(os.path.join(d, 'SConscript'))
+objs = objs + group
+
+Return('objs')
