@@ -2,6 +2,10 @@
 #include "rtthread.h"
 #include "rtdevice.h"
 
+extern struct key_state_type key0;
+extern struct key_state_type key1;
+
+
 static Button_t button_0;
 static Button_t button_1;
 
@@ -13,17 +17,17 @@ uint8_t button0_read_level(void)
 //button 0 down callback
 void button0_down_callback(void *btn)
 {
-	rt_kprintf("KEY0 down callback\r\n");
+	key0.down_state=KEY_PRESS;
 }
 // button 0 long callback
 void button0_double_callback(void *btn)
 {
-	rt_kprintf("KEY0 double callback\r\n");
+	key0.double_state=KEY_PRESS;
 }
 // button 0 long callback
 void button0_long_callback(void *btn)
 {
-	rt_kprintf("KEY0 long callback\r\n");
+	key0.long_state=KEY_PRESS;
 }
 
 
@@ -35,28 +39,26 @@ uint8_t button1_read_level(void)
 //button1 down callback
 void button1_down_callback(void *btn)
 {
-	rt_kprintf("KEY1 down callback\r\n");
+	key1.down_state=KEY_PRESS;
 }
 // button1 long callback
 void button1_double_callback(void *btn)
 {
-	rt_kprintf("KEY1 double callback\r\n");
+	key1.double_state=KEY_PRESS;
 }
 // button 1 long callback
 void button1_long_callback(void *btn)
 {
-	rt_kprintf("KEY1 long callback\r\n");
+	key1.long_state=KEY_PRESS;
 }
 
 
 
-void qsdk_key_init(void)
+int qsdk_key_init(void)
 {
 	//button gpio init
 	rt_pin_mode(KEY_0,PIN_MODE_INPUT_PULLDOWN);
 	rt_pin_mode(KEY_1,PIN_MODE_INPUT_PULLDOWN);
-	
-	
 	
 	//button create
 	Button_Create("button_0",&button_0,button0_read_level,PIN_HIGH);
@@ -70,10 +72,13 @@ void qsdk_key_init(void)
 	Button_Attach(&button_1,BUTTON_DOWM,button1_down_callback);
 	Button_Attach(&button_1,BUTTON_DOUBLE,button1_double_callback);
 	Button_Attach(&button_1,BUTTON_LONG,button1_long_callback);
-	}
+	
+	return RT_EOK;
+}
 
 void qsdk_key_process(void)
 {
 	Button_Process();
 }
 
+INIT_APP_EXPORT(qsdk_key_init);

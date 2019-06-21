@@ -24,6 +24,4 @@ int main(void)
 		rt_kprintf("%d-%d-%d_%d-%d-%d\r\n",rtc_tab->tm_year+1900,rtc_tab->tm_mon+1,rtc_tab->tm_mday,rtc_tab->tm_hour,rtc_tab->tm_min,rtc_tab->tm_sec);
 		rt_thread_delay(10000);
 	}
-
-    return RT_EOK;
 }

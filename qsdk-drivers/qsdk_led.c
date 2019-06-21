@@ -1,6 +1,6 @@
 #include "qsdk_led.h"
 
-void qsdk_led_init(void)
+int qsdk_led_init(void)
 {
 	rt_pin_mode(LED0,PIN_MODE_OUTPUT);
 	rt_pin_write(LED0,PIN_HIGH);
@@ -13,6 +13,8 @@ void qsdk_led_init(void)
 	
 	rt_pin_mode(LED3,PIN_MODE_OUTPUT);
 	rt_pin_write(LED3,PIN_HIGH);
+	
+	return RT_EOK;
 }
 
 void qsdk_led_on(rt_base_t pin)
@@ -25,3 +27,5 @@ void qsdk_led_off(rt_base_t pin)
 {
 	rt_pin_write(pin,PIN_HIGH);
 }
+
+INIT_APP_EXPORT(qsdk_led_init);

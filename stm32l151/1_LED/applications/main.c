@@ -13,11 +13,9 @@
 #include <board.h>
 #include "qsdk_led.h"
 
+
 int main(void)
 {
-	//led gpio init
-    qsdk_led_init();
-
     while (1)
     {
       qsdk_led_on(LED0);
@@ -31,6 +29,4 @@ int main(void)
 			qsdk_led_off(LED1);
 			qsdk_led_off(LED2);
     }
-
-    return RT_EOK;
 }

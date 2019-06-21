@@ -46,6 +46,4 @@ int main(void)
 		qsdk_oled_dis_8x16_string(6,40,"%0.1f",humidity);
 		rt_thread_delay(500);
 	}
-
-	return RT_EOK;
 }

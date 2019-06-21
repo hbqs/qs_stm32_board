@@ -6,7 +6,6 @@
 
 #define BEEP GET_PIN(A,8)
 
-void qsdk_beep_init(void);
 void qsdk_beep_on(void);
 void qsdk_beep_off(void);
 #endif

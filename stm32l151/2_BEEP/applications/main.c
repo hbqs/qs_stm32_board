@@ -15,9 +15,6 @@
 
 int main(void)
 {
-	//beep gpio init
-    qsdk_beep_init();
-
     while (1)
     {
         qsdk_beep_on();
@@ -25,6 +22,4 @@ int main(void)
         qsdk_beep_off();
         rt_thread_mdelay(500);
     }
-
-    return RT_EOK;
 }

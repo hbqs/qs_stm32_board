@@ -37,6 +37,4 @@ int main(void)
 		rt_thread_delay(500);
 		qsdk_oled_clear_screen();
 	}
-
-	return RT_EOK;
 }
