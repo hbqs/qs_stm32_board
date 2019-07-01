@@ -1,0 +1,17 @@
+[
+ {
+  "path": "/packages/iot/qsdk", 
+  "ver": "latest", 
+  "name": "QSDK"
+ }, 
+ {
+  "path": "/packages/peripherals/sht2x", 
+  "ver": "latest", 
+  "name": "SHT2X"
+ }, 
+ {
+  "path": "/packages/peripherals/button", 
+  "ver": "v1.0.1", 
+  "name": "BUTTON"
+ }
+]
