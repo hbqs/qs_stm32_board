@@ -36,5 +36,6 @@ JLinkLog.txt
 JLinkSettings.ini
 DebugConfig/
 RTE/
+settings/
 *.uvguix*
 cconfig.h
