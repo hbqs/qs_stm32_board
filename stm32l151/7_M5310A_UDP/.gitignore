@@ -28,9 +28,6 @@ documentation/html
 .config 5
 Midea-X1
 *.uimg
-GPATH
-GRTAGS
-GTAGS
 .vscode
 JLinkLog.txt
 JLinkSettings.ini
