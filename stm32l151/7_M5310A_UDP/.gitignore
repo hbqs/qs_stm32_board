@@ -23,6 +23,9 @@ documentation/html
 *.i
 *.d
 .DS_Stor*
+.config 3
+.config 4
+.config 5
 Midea-X1
 *.uimg
 GPATH
