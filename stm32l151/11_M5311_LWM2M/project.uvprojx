@@ -542,6 +542,16 @@
               <FileType>1</FileType>
               <FilePath>packages\qsdk-latest\src\qsdk_onenet.c</FilePath>
             </File>
+            <File>
+              <FileName>qsdk_iot.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\packages\qsdk-latest\src\qsdk_iot.c</FilePath>
+            </File>
+            <File>
+              <FileName>qsdk_net.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\packages\qsdk-latest\src\qsdk_net.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

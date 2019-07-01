@@ -358,6 +358,7 @@ onenet_recon:
 			qsdk_onenet_delete_instance();
 			goto onenet_recon;
 		}
+		qsdk_onenet_update_time(1);
 	}
 	
 	//连接网络成功，beep提示一声
@@ -405,6 +406,7 @@ onenet_recon:
 						recon_count=1;
 						goto onenet_recon;
 					}
+					qsdk_onenet_update_time(1);
 				}			
 			}
 			//判断当前是否为onenet异常关闭
@@ -418,6 +420,7 @@ onenet_recon:
 					recon_count=1;
 					goto onenet_recon;
 				}
+				qsdk_onenet_update_time(1);
 			}
 			//判断当前是否为模组异常重启
 			else if(event_status==EVENT_NB_REBOOT)
